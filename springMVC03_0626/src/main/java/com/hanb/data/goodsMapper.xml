@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goods">
+  <update id="updateGoods">
+  	update goods set item=#{item},qty=#{qty},fname=#{fname},price=#{price},detail=#{detail} where no=#{no}
+  </update>
+  
+  <select id="selectAll" resultType="goodsVo">
+    select * from goods
+  </select>
+  <select id="selectOne" resultType="goodsVo">
+    select * from goods where no=#{no}
+  </select>
+   <insert id="insert">
+  	insert into goods values(seq_goods.nextval,#{item}, #{qty}, #{fname}, #{price}, #{detail})
+  </insert>
+</mapper>
