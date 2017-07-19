@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	
+
+  <select id="selectAll" resultType="boardVo">
+    select * from board
+  </select>
+  
+  <select id="getBoard" resultType="boardVo">
+  	select * from board where no=#{no}
+  </select>
+  
+  <insert id="insert">
+  	insert into board values(seq_board.nextval,#{title}, #{writer}, #{pwd}, #{content}, 0, sysdate, #{ip}, 0,0,0,#{fname},0)
+  </insert>
+
+	<update id="update">
+		update board set title=#{title}, writer=#{writer}, pwd=#{pwd}, content=#{content}, ip=#{ip},fname=#{fname} where no=#{no}
+	</update>
+</mapper>
